@@ -1,12 +1,11 @@
 import Draggable from "react-draggable";
-import { useXarrow } from "react-xarrows";
+import Xarrow, { useXarrow } from "react-xarrows";
 interface propsInterface {
-  id: string;
+  id?: string;
 }
 
 function DragableComponent({ id }: propsInterface) {
   const updateXarrow = useXarrow();
-
   return (
     <div>
       <Draggable
@@ -20,11 +19,18 @@ function DragableComponent({ id }: propsInterface) {
         onStop={updateXarrow}
       >
         <div id={id} className="handle">
-          <div>Drag from here</div>
+          <div>{id}</div>
+
           <div>This readme is really dragging on...</div>
         </div>
       </Draggable>
-      {id == "id" && <DragableComponent id="hiiiiii" />}
+
+      {id == "id" && (
+        <div>
+          <Xarrow start="id" end="hiiiiiiiiiii" />
+          <DragableComponent id="hiiiiiiiiiii" />
+        </div>
+      )}
     </div>
   );
 }

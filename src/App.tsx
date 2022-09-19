@@ -43,8 +43,8 @@ function App() {
           start="box1" //can be react ref
           end="elem2" //or an id
         />
+        <DragableComponent id={"id"} />
       </Xwrapper>
-      <DragableComponent id={"id"} />
     </div>
   );
 }
